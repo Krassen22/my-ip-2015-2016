@@ -23,8 +23,11 @@ public class Minecraft {
 		System.out.print("Cube height: ");
 		System.out.println(cube.getHeight());
 		
-		System.out.printf("Cube volume: %d", cube.getWidth()*cube.getLength()*cube.getHeight());
+		// Old version
+		// System.out.printf("Cube volume: %d", cube.getWidth()*cube.getLength()*cube.getHeight());
 		
+		// New version
+		System.out.printf("Cube volume: %d", cube.calculateVolume());
 	}
 
 }
