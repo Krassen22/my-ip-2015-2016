@@ -10,12 +10,31 @@ public class ControlFlowStatements {
 		}
 		
 		// 'if' and 'else'
-		if(3>=2) {
+		int firstNumber = 3;
+		int secondNumber = 2;
+		
+		// Select statements that should be extracted to method, press Ctrl+1
+		ifExample(firstNumber, secondNumber);
+		
+		int myAge = 18;
+		ageRestriction(myAge);
+		
+	}
+
+	private static void ifExample(int firstNumber, int secondNumber) {
+		if(firstNumber>=secondNumber) {
 			System.out.println("3 is greater or equal then 2");
 		} else {
 			System.out.println("3 is less then 2");
 		}
-
+	}
+	
+	private static void ageRestriction(int age){
+		if(age < 18) {
+			System.out.println("You have no business here!");
+		} else {
+			System.out.println("Hey, you are welcome!");
+		}
 	}
 
 }
