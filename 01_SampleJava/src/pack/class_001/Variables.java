@@ -1,6 +1,9 @@
 package pack.class_001;
 
 public class Variables {
+	
+	// define constant variable (string)
+	private static final String LAST_NAME = "Angelov";
 
 	public static void main(String[] args) {
 		
@@ -11,7 +14,8 @@ public class Variables {
 		var = 0;
 		
 		// init variable value
-		String name = "Krassen";
+		String firstName = "Krassen";
+		String lastName = LAST_NAME;
 		
 	}
 	// out of scope
