@@ -4,10 +4,14 @@ public class Variables {
 
 	public static void main(String[] args) {
 		
-		int var;
-		
+		// out of scope
+		// var = 2;	
+	
+		int var;	
 		var = 0;
 		
 	}
+	// out of scope
+	// var = 7;
 
 }
