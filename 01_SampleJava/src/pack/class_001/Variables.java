@@ -10,6 +10,9 @@ public class Variables {
 		int var;	
 		var = 0;
 		
+		// init variable value
+		String name = "Krassen";
+		
 	}
 	// out of scope
 	// var = 7;
