@@ -5,6 +5,8 @@ public class ClassExample {
 	public static void main(String[] args) {
 		
 		new Room();
+		Room room = new Room();
+		
 	}
-
+	
 }
