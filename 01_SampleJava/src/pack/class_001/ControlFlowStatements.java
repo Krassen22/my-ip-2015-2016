@@ -14,11 +14,22 @@ public class ControlFlowStatements {
 		int secondNumber = 2;
 		
 		// Select statements that should be extracted to method, press Ctrl+1
+		forExtracted();
+		
+		// Select statements that should be extracted to method, press Ctrl+1
 		ifExample(firstNumber, secondNumber);
 		
 		int myAge = 18;
 		ageRestriction(myAge);
 		
+	}
+
+	private static void forExtracted() {
+		for (int i = 0; i < 10; i++) {
+			// 0..9
+			System.out.println(i);
+		}
+		System.out.println();
 	}
 
 	private static void ifExample(int firstNumber, int secondNumber) {
@@ -28,6 +39,7 @@ public class ControlFlowStatements {
 			System.out.println("3 is less then 2");
 		}
 	}
+	
 	
 	private static void ageRestriction(int age){
 		if(age < 18) {
