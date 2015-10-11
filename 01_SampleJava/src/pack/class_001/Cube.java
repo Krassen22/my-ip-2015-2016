@@ -26,4 +26,9 @@ public class Cube {
 		this.height = height;
 	}
 	
+	public int calculateVolume() {
+		
+		return width * length * height;
+	}
+	
 }
