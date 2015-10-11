@@ -6,6 +6,9 @@ public class HelloWorld {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Hello world");
+		
+		// C style output
+		System.out.printf("Happy new year %d!", 2000+16);
 	}
-
+	
 }
