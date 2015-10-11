@@ -24,7 +24,7 @@ public class EqualsExample {
 		System.out.println(cube1 == cube2);
 
 		System.out.println("cube1.equals(cube2)");
-		// false
+		// true
 		System.out.println(cube1.equals(cube2));
 		
 
