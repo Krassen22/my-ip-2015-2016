@@ -8,14 +8,14 @@ public class CommandsHandler {
 
 	private static Map<String, CommandHandler> HANDLERS =new HashMap<String, CommandHandler>();
 	public static void main(String[] args) {
-		HANDLERS.put("sum", new sumCommandHandler());
+		HANDLERS.put("sum", new SumCommandHandler());
 		// input:
 		System.out.print("Enter command: ");
 		final Scanner in = new Scanner(System.in);
 		final String command = in.next();
 		// processing:
 		final CommandHandler handler = parse(command);
-		final int result = handler.execute();
+		final int result = handler.execute(command.split(":"));
 		// output:
 		System.out.printf("Result, " + result);
 		in.close();
