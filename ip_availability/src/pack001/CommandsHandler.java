@@ -39,7 +39,7 @@ public class CommandsHandler {
 				return;
 			}
 			if(!allUsers.usersInfo.containsKey(splittedCommand[2])){
-				System.out.println(splittedCommand[2] + ":false:0");
+				System.out.println("ok" + ":" + splittedCommand[2] + ":false:0");
 			}
 			else{
 			System.out.println("ok" + ":" + splittedCommand[2] + 
