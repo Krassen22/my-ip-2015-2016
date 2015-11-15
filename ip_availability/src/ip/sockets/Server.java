@@ -17,7 +17,7 @@ public class Server {
 		while(running){
 			final Socket socket = serverSocket.accept();
 			final ClientHandler client = new ClientHandler(this, socket);
-			client.run();
+			new Thread(client).start();
 		}
 		serverSocket.close();
 	}
