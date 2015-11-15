@@ -24,7 +24,8 @@ public class CommandsExecutor {
 				new LogoutCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
 			else if("listavailable".equals(commandWord))
 				new ListAvailableCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
-				
+			else if ("listabsent".equals(commandWord))
+				new ListAbsentCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
 		}
 	}
 }

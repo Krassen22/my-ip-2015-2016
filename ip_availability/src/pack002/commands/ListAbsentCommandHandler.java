@@ -5,17 +5,19 @@ import java.util.Map;
 
 import pack002.user.User;
 
-public class ListAvailableCommandHandler implements CommandHandler{
+public class ListAbsentCommandHandler implements CommandHandler{
 
 	@Override
 	public void executeCommand(String userName, String commandWord, String userName2, PrintStream out,
 			Map<String, User> usersInfo) {
 		out.print("ok");
-		for (String availableUser : usersInfo.keySet()){
-			if(usersInfo.get(availableUser).isCurrentlyLogStatus() == true){
-				out.print(":" + availableUser);
+		for (String absentUser : usersInfo.keySet()){
+			if(usersInfo.get(absentUser).isCurrentlyLogStatus() == false){
+				out.print(":" + absentUser);
 			}
 		}
 		out.println();
+		
 	}
+
 }
