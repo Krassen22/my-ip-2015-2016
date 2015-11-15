@@ -17,6 +17,9 @@ public class CommandsExecutor {
 			commandWord = splittedCommand[1];
 			if("login".equals(commandWord))
 				new LoginCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
+			else if(!usersInfo.containsKey(userName) || 
+					usersInfo.get(userName).isCurrentlyLogStatus() != true)
+				out.println("error:notlogged");
 			else if("logout".equals(commandWord))
 				new LogoutCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
 		}
