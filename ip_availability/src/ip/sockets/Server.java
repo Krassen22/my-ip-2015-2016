@@ -6,17 +6,24 @@ import java.net.Socket;
 
 public class Server {
 	private final int port;
-	
+	private boolean running;
 	public Server(int port){
 		this.port = port;
 	}
 	
 	public void startServer() throws IOException{
+		running = true;
 		final ServerSocket serverSocket = new ServerSocket(port);
-		final Socket socket = serverSocket.accept();
-		final ClientHandler client = new ClientHandler(socket);
-		client.run();
+		while(running){
+			final Socket socket = serverSocket.accept();
+			final ClientHandler client = new ClientHandler(this, socket);
+			client.run();
+		}
 		serverSocket.close();
+	}
+	
+	public void stopServer(){
+		running = false;
 	}
 	
 }
