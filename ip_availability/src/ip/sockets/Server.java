@@ -37,7 +37,7 @@ public class Server {
 	}
 	
 	private synchronized ServerSocket createServerSocket() throws IOException{
-		if(!running){
+		if(running){
 			throw new IllegalStateException("Already running");
 		}
 		running = true;
@@ -53,7 +53,7 @@ public class Server {
 		if(!running){
 			throw new IllegalStateException("Not running");
 		}
-		
+
 		running = false;
 		serverSocket.close();
 		serverSocket = null;

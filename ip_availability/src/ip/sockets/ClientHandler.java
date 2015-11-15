@@ -23,7 +23,7 @@ public class ClientHandler implements Runnable{
 			while(scanner.hasNextLine()){
 				final String command = scanner.nextLine();
 				if(COMMAND_STOP_SERVER.equals(command)){
-					server.startServer();
+					server.stopServer();
 					break;
 				}
 				out.println(command);
