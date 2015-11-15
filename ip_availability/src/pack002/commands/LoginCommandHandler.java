@@ -14,5 +14,4 @@ public class LoginCommandHandler implements CommandHandler{
 		usersInfo.get(userName).login();
 		out.println("ok");
 	}
-	
 }

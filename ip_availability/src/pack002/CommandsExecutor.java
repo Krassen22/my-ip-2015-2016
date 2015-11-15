@@ -15,9 +15,10 @@ public class CommandsExecutor {
 		if(splittedCommand.length == 2){
 			userName = splittedCommand[0];
 			commandWord = splittedCommand[1];
-			if("login".equals(commandWord)){ 
+			if("login".equals(commandWord))
 				new LoginCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
-			}
+			else if("logout".equals(commandWord))
+				new LogoutCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
 		}
 	}
 }
