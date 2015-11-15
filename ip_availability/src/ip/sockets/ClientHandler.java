@@ -32,6 +32,12 @@ public class ClientHandler implements Runnable{
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			server.onClientStopped(this);
 		}
+	}
+	
+	public void stopClient() throws IOException{
+		socket.close();
 	}
 }
