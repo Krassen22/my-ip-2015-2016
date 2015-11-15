@@ -12,9 +12,9 @@ public class Server {
 	}
 	
 	public void startServer() throws IOException{
-		running = true;
+		setRunning();
 		final ServerSocket serverSocket = new ServerSocket(port);
-		while(running){
+		while(isRunning()){
 			final Socket socket = serverSocket.accept();
 			final ClientHandler client = new ClientHandler(this, socket);
 			new Thread(client).start();
@@ -22,8 +22,18 @@ public class Server {
 		serverSocket.close();
 	}
 	
-	public void stopServer(){
-		running = false;
+	private synchronized void setRunning(){
+		if(running){
+			throw new IllegalStateException("Already running");
+		}
+		running = true;
 	}
 	
+	private synchronized boolean isRunning(){
+		return running;
+	}
+	
+	public synchronized void stopServer(){
+		running = false;
+	}
 }
