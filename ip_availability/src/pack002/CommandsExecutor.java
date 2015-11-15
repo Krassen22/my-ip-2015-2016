@@ -22,6 +22,9 @@ public class CommandsExecutor {
 				out.println("error:notlogged");
 			else if("logout".equals(commandWord))
 				new LogoutCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
+			else if("listavailable".equals(commandWord))
+				new ListAvailableCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
+				
 		}
 	}
 }
