@@ -1,4 +1,4 @@
-package ip.sockets;
+package pack002.sockets;
 
 import java.io.IOException;
 
@@ -11,5 +11,4 @@ public class ServerStarter {
 		server.startServer();
 
 	}
-
 }

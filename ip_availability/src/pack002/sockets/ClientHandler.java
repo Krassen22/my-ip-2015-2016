@@ -1,4 +1,4 @@
-package ip.sockets;
+package pack002.sockets;
 
 import java.io.IOException;
 import java.io.PrintStream;
