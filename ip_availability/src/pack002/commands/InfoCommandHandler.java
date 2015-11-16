@@ -18,7 +18,5 @@ public class InfoCommandHandler implements CommandHandler{
 				":" + usersInfo.get(userName2).isCurrentlyLogStatus() + 
 				":" + usersInfo.get(userName2).getLoginCount());
 		}
-		
 	}
-
 }

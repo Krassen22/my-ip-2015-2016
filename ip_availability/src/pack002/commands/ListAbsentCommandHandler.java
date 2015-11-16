@@ -16,7 +16,5 @@ public class ListAbsentCommandHandler implements CommandHandler{
 				out.print(":" + absentUser);
 		}
 		out.println();
-		
 	}
-
 }
