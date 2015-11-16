@@ -14,9 +14,10 @@ public class InfoCommandHandler implements CommandHandler{
 			out.println("ok" + ":" + userName2 + ":false:0");
 		}
 		else{
-		out.println("ok" + ":" + userName2 + 
+		out.print("ok" + ":" + userName2 + 
 				":" + usersInfo.get(userName2).isCurrentlyLogStatus() + 
 				":" + usersInfo.get(userName2).getLoginCount());
 		}
+		out.println(usersInfo.get(userName2).exportWholeActivity());
 	}
 }

@@ -9,6 +9,5 @@ public class ServerStarter {
 		
 		final Server server = new Server(SERVER_PORT);
 		server.startServer();
-
 	}
 }
