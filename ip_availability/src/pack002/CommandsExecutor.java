@@ -1,5 +1,6 @@
 package pack002;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class CommandsExecutor {
 	private String userName2; 
 	private String commandWord;
 	
-	public synchronized void execute(String[] splittedCommand, PrintStream out, Server server, Map<String,User> usersInfo){
+	public synchronized void execute(String[] splittedCommand, PrintStream out, Server server, Map<String,User> usersInfo) throws IOException{
 		if(splittedCommand.length == 2){
 			userName = splittedCommand[0];
 			commandWord = splittedCommand[1];
@@ -26,6 +27,8 @@ public class CommandsExecutor {
 				new ListAvailableCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
 			else if ("listabsent".equals(commandWord))
 				new ListAbsentCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
+			else if("shutdown".equals(commandWord))
+				server.stopServer();
 		}
 	}
 }

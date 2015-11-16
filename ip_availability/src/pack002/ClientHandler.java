@@ -11,7 +11,7 @@ import java.util.Scanner;
 import pack002.user.User;
 
 public class ClientHandler implements Runnable{
-	private static final String COMMAND_STOP_SERVER = "stopServer";
+
 	private final Socket socket;
 	private final Server server;
 	Map<String,User> usersInfo = Collections.synchronizedMap(new HashMap<String,User>());
@@ -30,10 +30,6 @@ public class ClientHandler implements Runnable{
 			
 			while(scanner.hasNextLine()){
 				final String command = scanner.nextLine();
-				if(COMMAND_STOP_SERVER.equals(command)){
-					server.stopServer();
-					break;
-				}
 				final String[] splitedCommand = command.split(":");
 				commandExecutor.execute(splitedCommand, out, server, usersInfo);
 			}
