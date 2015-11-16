@@ -29,6 +29,15 @@ public class CommandsExecutor {
 				new ListAbsentCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
 			else if("shutdown".equals(commandWord))
 				server.stopServer();
+		}else if(splittedCommand.length == 3 && "info".equals(splittedCommand[1])){
+			userName = splittedCommand[0];
+			userName2 = splittedCommand[2];
+			if(!usersInfo.containsKey(userName) ||
+					usersInfo.get(userName).isCurrentlyLogStatus() != true){
+				out.println("error:notlogged");
+				return;
+			}
+			new InfoCommandHandler().executeCommand(null, null, userName2, out, usersInfo);
 		}
 	}
 }
