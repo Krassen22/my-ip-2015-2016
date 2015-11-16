@@ -27,11 +27,12 @@ public class ClientHandler implements Runnable{
 			final PrintStream out = new PrintStream(socket.getOutputStream());
 			final Scanner scanner = new Scanner(socket.getInputStream());
 			CommandsExecutor commandExecutor = new CommandsExecutor();
-			
+			out.print("Enter command: ");
 			while(scanner.hasNextLine()){
 				final String command = scanner.nextLine();
 				final String[] splitedCommand = command.split(":");
 				commandExecutor.execute(splitedCommand, out, server, usersInfo);
+				out.print("Enter command: ");
 			}
 			scanner.close();
 			out.close();
