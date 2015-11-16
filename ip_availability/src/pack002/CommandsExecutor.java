@@ -13,11 +13,12 @@ public class CommandsExecutor {
 	private String commandWord;
 	
 	public synchronized void execute(String[] splittedCommand, PrintStream out, Server server, Map<String,User> usersInfo) throws IOException{
-		if(splittedCommand.length == 2){
+		if(splittedCommand.length == 2)
 			commandsComposedByTwoParts(splittedCommand, out, server, usersInfo);
-		}else if(splittedCommand.length == 3 && "info".equals(splittedCommand[1])){
+		else if(splittedCommand.length == 3 && "info".equals(splittedCommand[1]))
 			commandsComposedByThreeParts(splittedCommand, out, usersInfo);
-		}
+		else
+			out.println("error:unknowncommand");
 	}
 	
 	public void commandsComposedByTwoParts(String[] splittedCommand, PrintStream out, Server server, Map<String,User> usersInfo) throws IOException{
@@ -36,6 +37,8 @@ public class CommandsExecutor {
 			new ListAbsentCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
 		else if("shutdown".equals(commandWord))
 			server.stopServer();
+		else
+			out.println("error:unknowncommand");
 	}
 	
 	public void commandsComposedByThreeParts(String[] splittedCommand, PrintStream out, Map<String,User> usersInfo){
