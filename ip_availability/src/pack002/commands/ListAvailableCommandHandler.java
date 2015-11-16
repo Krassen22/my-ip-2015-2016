@@ -8,7 +8,7 @@ import pack002.user.User;
 public class ListAvailableCommandHandler implements CommandHandler{
 
 	@Override
-	public void executeCommand(String userName, String commandWord, String userName2, PrintStream out,
+	public void executeCommand(String userName, String userName2, PrintStream out,
 			Map<String, User> usersInfo) {
 		out.print("ok");
 		for (String availableUser : usersInfo.keySet()){

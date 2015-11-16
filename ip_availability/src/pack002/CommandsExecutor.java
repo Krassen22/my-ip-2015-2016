@@ -25,16 +25,16 @@ public class CommandsExecutor {
 		userName = splittedCommand[0];
 		commandWord = splittedCommand[1];
 		if("login".equals(commandWord))
-			new LoginCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
+			new LoginCommandHandler().executeCommand(userName, null, out, usersInfo);
 		else if(!usersInfo.containsKey(userName) || 
 				usersInfo.get(userName).isCurrentlyLogStatus() != true)
 			out.println("error:notlogged");
 		else if("logout".equals(commandWord))
-			new LogoutCommandHandler().executeCommand(userName, commandWord, null, out, usersInfo);
+			new LogoutCommandHandler().executeCommand(userName, null, out, usersInfo);
 		else if("listavailable".equals(commandWord))
-			new ListAvailableCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
+			new ListAvailableCommandHandler().executeCommand(null, null, out, usersInfo);
 		else if ("listabsent".equals(commandWord))
-			new ListAbsentCommandHandler().executeCommand(null, commandWord, null, out, usersInfo);
+			new ListAbsentCommandHandler().executeCommand(null, null, out, usersInfo);
 		else if("shutdown".equals(commandWord))
 			server.stopServer();
 		else
@@ -49,7 +49,7 @@ public class CommandsExecutor {
 			out.println("error:notlogged");
 			return;
 		}
-		new InfoCommandHandler().executeCommand(null, null, userName2, out, usersInfo);
+		new InfoCommandHandler().executeCommand(null, userName2, out, usersInfo);
 	}
 }
 

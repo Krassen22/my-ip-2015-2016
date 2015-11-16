@@ -8,7 +8,7 @@ import pack002.user.User;
 public class InfoCommandHandler implements CommandHandler{
 
 	@Override
-	public void executeCommand(String userName, String commandWord, String userName2, PrintStream out,
+	public void executeCommand(String userName, String userName2, PrintStream out,
 			Map<String, User> usersInfo) {
 		if(!usersInfo.containsKey(userName2)){
 			out.println("ok" + ":" + userName2 + ":false:0");
