@@ -14,7 +14,6 @@ public class ClientHandler implements Runnable{
 
 	private final Socket socket;
 	private final Server server;
-	Map<String,User> usersInfo = Collections.synchronizedMap(new HashMap<String,User>());
 	
 	public ClientHandler(Server server, Socket socket){
 		this.socket = socket;
@@ -31,7 +30,7 @@ public class ClientHandler implements Runnable{
 			while(scanner.hasNextLine()){
 				final String command = scanner.nextLine();
 				final String[] splitedCommand = command.split(":");
-				commandExecutor.execute(splitedCommand, out, server, usersInfo);
+				commandExecutor.execute(splitedCommand, out, server, Server.usersInfo);
 				out.print("Enter command: ");
 			}
 			scanner.close();

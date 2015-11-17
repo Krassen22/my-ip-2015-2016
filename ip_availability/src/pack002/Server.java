@@ -5,8 +5,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+
+import pack002.user.User;
 
 
 public class Server {
@@ -14,6 +18,7 @@ public class Server {
 	private boolean running;
 	private final List<ClientHandler> clients = Collections.synchronizedList(new LinkedList<ClientHandler>());
 	private ServerSocket serverSocket;
+	static Map<String,User> usersInfo = Collections.synchronizedMap(new HashMap<String,User>());
 	
 	public Server(int port){
 		this.port = port;
