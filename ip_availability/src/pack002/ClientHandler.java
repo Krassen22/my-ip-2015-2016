@@ -10,6 +10,9 @@ public class ClientHandler implements Runnable{
 	private final Socket socket;
 	private final Server server;
 	
+	private PrintStream out;
+	private Scanner scanner;
+	
 	public ClientHandler(Server server, Socket socket){
 		this.socket = socket;
 		this.server = server;
@@ -18,8 +21,7 @@ public class ClientHandler implements Runnable{
 	@Override
 	public void run(){
 		try {
-			final PrintStream out = new PrintStream(socket.getOutputStream());
-			final Scanner scanner = new Scanner(socket.getInputStream());
+			IOInitializer();
 			CommandsExecutor commandExecutor = new CommandsExecutor();
 			out.print("Enter command: ");
 			while(scanner.hasNextLine()){
@@ -35,6 +37,11 @@ public class ClientHandler implements Runnable{
 		} finally {
 			server.onClientStopped(this);
 		}
+	}
+	
+	private void IOInitializer() throws IOException {
+		out = new PrintStream(socket.getOutputStream());
+		scanner = new Scanner(socket.getInputStream());
 	}
 	
 	public void stopClient() throws IOException{
