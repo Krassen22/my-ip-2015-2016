@@ -9,7 +9,7 @@ public class User {
 	private String userName;
 	private boolean currentlyLogStatus;
 	private int loginCount;
-	private List<Interval> activityDates = new ArrayList<Interval>();
+	private final List<Interval> activityDates = new ArrayList<Interval>();
 	
 	public User(String userName){
 		setUserName(userName);

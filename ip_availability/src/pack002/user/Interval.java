@@ -7,7 +7,7 @@ public class Interval {
 
 		private Date from;
 		private Date to;
-		private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy­-MM-­dd'T'HH'_'mm'_'ss.SSSZ");
+		private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy­-MM-­dd'T'HH'_'mm'_'ss.SSSZ");
 		
 		public Interval(Date from){
 			setFrom(from);

@@ -18,7 +18,7 @@ public class Server {
 	private boolean running;
 	private final List<ClientHandler> clients = Collections.synchronizedList(new LinkedList<ClientHandler>());
 	private ServerSocket serverSocket;
-	static Map<String,User> usersInfo = Collections.synchronizedMap(new HashMap<String,User>());
+	static final Map<String,User> usersInfo = Collections.synchronizedMap(new HashMap<String,User>());
 	
 	public Server(int port){
 		this.port = port;
