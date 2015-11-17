@@ -48,7 +48,7 @@ public class User {
 	}
 	
 	public void login(){
-		if( isCurrentlyLogStatus() != true){
+		if(!isCurrentlyLogStatus()){
 			setCurrentlyLogStatus(true);
 			incrementLoginCount();
 		}

@@ -1,14 +1,9 @@
 package pack002;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.io.PrintStream;
 import java.net.Socket;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
-
-import pack002.user.User;
 
 public class ClientHandler implements Runnable{
 
