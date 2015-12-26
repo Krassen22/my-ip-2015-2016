@@ -114,6 +114,8 @@ $(document).ready(function() {
 			var title = $("#createPanel input[name='title']").val();
 			var description = $("#createPanel textarea[name='description']").val();
 			createTask(title, description);
+			$("#createPanel input[name='title']").val("");
+			$("#createPanel textarea[name='description']").val("");
 			showPanel("emptyPanel");
 		});
 		
