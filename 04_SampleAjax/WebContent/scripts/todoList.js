@@ -49,10 +49,10 @@ $(document).ready(function() {
 		});
 	}
 	
-	function createTask(tastTitle, tastDescription) {
+	function createTask(taskTitle, taskDescription) {
 		var task = {
-				title: tastTitle,
-				description: tastDescription
+				title: taskTitle,
+				description: taskDescription
 		};
 		$.ajax(ENDPOINT, {
 			method: "POST",
@@ -64,10 +64,10 @@ $(document).ready(function() {
 		});
 	}
 	
-	function updateTask(taskId, tastTitle, tastDescription){
+	function updateTask(taskId, taskTitle, taskDescription){
 		var newTask = {
-				title: tastTitle,
-				description: tastDescription
+				title: taskTitle,
+				description: taskDescription
 		};
 		$.ajax(taskEndpoint(taskId), {
 			method: "PUT",
