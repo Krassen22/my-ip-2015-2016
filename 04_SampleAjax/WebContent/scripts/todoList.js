@@ -47,6 +47,21 @@ $(document).ready(function() {
 		});
 	}
 	
+	function createTask(tastTitle, tastDescription) {
+		var task = {
+				title: tastTitle,
+				description: tastDescription
+		};
+		$.ajax(ENDPOINT, {
+			method: "POST",
+			contentType: "application/json; charset=utf-8",
+			data: JSON.stringify(task),
+			dataType: "json"
+		}).then(function() {
+			reloadTasks();
+		});
+	}
+	
 	function deleteTask(taskId) {
 		$.ajax(taskEndpoint(taskId), {
 			method: "DELETE"
@@ -62,16 +77,25 @@ $(document).ready(function() {
 			readTask(taskId).then(showTaskView);
 		});
 		
-		$(".task-action-cancel").click(function() {
+		$(document).on("click", ".task-action-cancel", function() {
 			showPanel("emptyPanel");
 		});
 		
-		$(document).on('click', '#readPanel .task-action-remove', function(){
+		$(document).on("click", "#addTaskButton", function() {
+			showPanel("createPanel");
+		});
+		
+		$(document).on("click", "#readPanel .task-action-remove", function() {
 			deleteTask(taskId);
 			$('#readPanel').fadeOut(300);
 		});
-	
-	}
+		
+		$(document).on("click", "#createPanel .task-action-ok", function() {
+			var title = $("#createPanel input[name='title']").val();
+			var description = $("#createPanel textarea[name='description']").val();
+			createTask(title, description);
+		});
+	};
 	
 	attachHandlers();
 	reloadTasks();
