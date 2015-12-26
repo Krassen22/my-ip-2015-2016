@@ -10,7 +10,7 @@ $(document).ready(function() {
 		_.forEach(ALL_PANELS, function(nextValue) {
 			$("#"+nextValue).hide();
 		});
-		$("#"+panelName).show();
+		$("#"+panelName).fadeIn();
 	}
 
 	function listTasks() {
@@ -40,6 +40,8 @@ $(document).ready(function() {
 				newItem.text(task.title);
 				newItem.addClass("list-group-item");
 				newItem.attr("data-task-id", task.id);
+				newItem.attr("data-task-title", task.title);
+				newItem.attr("data-task-description", task.description);
 				$("#tasksList").append(newItem);
 			}
 			$("#tasksList").html("");
@@ -85,10 +87,16 @@ $(document).ready(function() {
 		})
 	};
 	
-	var taskId;
 	function attachHandlers() {
+		
+		var taskId;
+		var title;
+		var description;
+		
 		$(document).on("click", "#tasksList [data-task-id]", function() {
 			taskId = $(this).attr("data-task-id");
+			title = $(this).attr("data-task-title");
+			description = $(this).attr("data-task-description");
 			readTask(taskId).then(showTaskView);
 		});
 		
@@ -102,11 +110,12 @@ $(document).ready(function() {
 		
 		$(document).on("click", "#readPanel .task-action-ok", function() {
 			showPanel("updatePanel");
+			$("#updatePanel input[name='title']").val(title);
+			$("#updatePanel textarea[name='description']").val(description);
 		});
 		
 		$(document).on("click", "#readPanel .task-action-remove", function() {
 			deleteTask(taskId);
-			$('#readPanel').fadeOut(300);
 			showPanel("emptyPanel");
 		});
 		
@@ -123,7 +132,6 @@ $(document).ready(function() {
 			var title = $("#updatePanel input[name='title']").val();
 			var description = $("#updatePanel textarea[name='description']").val();
 			updateTask(taskId, title, description);
-			$('#updatePanel').fadeOut(300);
 			showPanel("emptyPanel");
 		});
 	};
