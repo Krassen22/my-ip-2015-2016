@@ -90,13 +90,13 @@ $(document).ready(function() {
 	function attachHandlers() {
 		
 		var taskId;
-		var title;
-		var description;
+		var taskTitle;
+		var taskDescription;
 		
 		$(document).on("click", "#tasksList [data-task-id]", function() {
 			taskId = $(this).attr("data-task-id");
-			title = $(this).attr("data-task-title");
-			description = $(this).attr("data-task-description");
+			taskTitle = $(this).attr("data-task-title");
+			taskDescription = $(this).attr("data-task-description");
 			readTask(taskId).then(showTaskView);
 		});
 		
@@ -110,8 +110,8 @@ $(document).ready(function() {
 		
 		$(document).on("click", "#readPanel .task-action-ok", function() {
 			showPanel("updatePanel");
-			$("#updatePanel input[name='title']").val(title);
-			$("#updatePanel textarea[name='description']").val(description);
+			$("#updatePanel input[name='title']").val(taskTitle);
+			$("#updatePanel textarea[name='description']").val(taskDescription);
 		});
 		
 		$(document).on("click", "#readPanel .task-action-remove", function() {
@@ -129,9 +129,9 @@ $(document).ready(function() {
 		});
 		
 		$(document).on("click", "#updatePanel .task-action-ok", function() {
-			var title = $("#updatePanel input[name='title']").val();
-			var description = $("#updatePanel textarea[name='description']").val();
-			updateTask(taskId, title, description);
+			var newTitle = $("#updatePanel input[name='title']").val();
+			var newDescription = $("#updatePanel textarea[name='description']").val();
+			updateTask(taskId, newTitle, newDescription);
 			showPanel("emptyPanel");
 		});
 	};
