@@ -62,6 +62,21 @@ $(document).ready(function() {
 		});
 	}
 	
+	function updateTask(taskId, tastTitle, tastDescription){
+		var newTask = {
+				title: tastTitle,
+				description: tastDescription
+		};
+		$.ajax(taskEndpoint(taskId), {
+			method: "PUT",
+			contentType: "application/json; charset=utf-8",
+			data: JSON.stringify(newTask),
+			dataType: "json"
+		}).then(function() {
+			reloadTasks();
+		});
+	}
+	
 	function deleteTask(taskId) {
 		$.ajax(taskEndpoint(taskId), {
 			method: "DELETE"
@@ -85,15 +100,28 @@ $(document).ready(function() {
 			showPanel("createPanel");
 		});
 		
+		$(document).on("click", "#readPanel .task-action-ok", function() {
+			showPanel("updatePanel");
+		});
+		
 		$(document).on("click", "#readPanel .task-action-remove", function() {
 			deleteTask(taskId);
 			$('#readPanel').fadeOut(300);
+			showPanel("emptyPanel");
 		});
 		
 		$(document).on("click", "#createPanel .task-action-ok", function() {
 			var title = $("#createPanel input[name='title']").val();
 			var description = $("#createPanel textarea[name='description']").val();
 			createTask(title, description);
+		});
+		
+		$(document).on("click", "#updatePanel .task-action-ok", function() {
+			var title = $("#updatePanel input[name='title']").val();
+			var description = $("#updatePanel textarea[name='description']").val();
+			updateTask(taskId, title, description);
+			$('#updatePanel').fadeOut(300);
+			showPanel("emptyPanel");
 		});
 	};
 	
